@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F9F9"
+    tools:context=".AnalysisActivity">
+
+    <ImageView
+        android:id="@+id/image_pill"
+        android:layout_width="374dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/edge_black"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tacenol" />
+
+    <TextView
+        android:id="@+id/name_pill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="타세놀8시간이알서방정"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/image_pill"
+        app:layout_constraintEnd_toEndOf="@+id/image_pill"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/image_pill"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.939" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="412dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edge_black"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_pill"
+        app:srcCompat="@drawable/up_bar" />
+
+    <Button
+        android:id="@+id/btn_summary"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="67dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="요약"
+        android:textColor="#7FA8EE"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toStartOf="@+id/btn_detail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_detail"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="66dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="272dp"
+        android:layout_marginRight="272dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="상세"
+        android:textColor="#9F9C9C"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_summary"
+        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/btn_summary"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="411dp"
+        android:layout_height="328dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다이건테스트입니다"
+                android:textColor="#989898" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="411dp"
+        android:layout_height="112dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintVertical_bias="0.947"
+        app:srcCompat="@drawable/up_bar" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="MY 복용함에 추가"
+        android:textColor="#3E3E3E"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btn_yes"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:text="예"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        android:textStyle="normal"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <Button
+        android:id="@+id/btn_no"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:text="아니오"
+        android:textColor="#000000"
+        android:textSize="19sp"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

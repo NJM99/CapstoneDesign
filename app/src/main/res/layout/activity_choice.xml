@@ -7,7 +7,7 @@
     tools:context=".ChoiceActivity">
 
     <Button
-        android:id="@+id/bnt_3"
+        android:id="@+id/btn_head"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginStart="32dp"
@@ -17,10 +17,10 @@
         android:textColor="#676363"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_1" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cold" />
 
     <Button
-        android:id="@+id/btn_5"
+        android:id="@+id/btn_stomach"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginStart="32dp"
@@ -30,10 +30,10 @@
         android:textColor="#676363"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bnt_3" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_head" />
 
     <Button
-        android:id="@+id/btn_7"
+        android:id="@+id/btn_tooth"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginStart="32dp"
@@ -43,10 +43,10 @@
         android:textColor="#676363"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_5" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_stomach" />
 
     <Button
-        android:id="@+id/btn_9"
+        android:id="@+id/btn_muscle"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginStart="32dp"
@@ -57,11 +57,11 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_7"
+        app:layout_constraintTop_toBottomOf="@+id/btn_tooth"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/bnt_4"
+        android:id="@+id/btn_cramps"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginTop="39dp"
@@ -72,10 +72,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_fever" />
 
     <Button
-        android:id="@+id/btn_2"
+        android:id="@+id/btn_fever"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginTop="39dp"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <Button
-        android:id="@+id/btn_1"
+        android:id="@+id/btn_cold"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginStart="32dp"
@@ -98,13 +98,13 @@
         android:text="감기, 몸살"
         android:textColor="#676363"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_2"
+        app:layout_constraintEnd_toStartOf="@+id/btn_fever"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <Button
-        android:id="@+id/btn_10"
+        android:id="@+id/btn_constipation"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginTop="39dp"
@@ -116,7 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_8"
+        app:layout_constraintTop_toBottomOf="@+id/btn_allergy"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
@@ -158,7 +158,7 @@
         app:srcCompat="@drawable/square_line" />
 
     <Button
-        android:id="@+id/btn_6"
+        android:id="@+id/btn_indigestion"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginTop="39dp"
@@ -169,10 +169,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bnt_4" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_cramps" />
 
     <Button
-        android:id="@+id/btn_8"
+        android:id="@+id/btn_allergy"
         android:layout_width="155dp"
         android:layout_height="69dp"
         android:layout_marginTop="39dp"
@@ -183,6 +183,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_6" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_indigestion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

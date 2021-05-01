@@ -16,7 +16,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneDesign">
-        <activity android:name=".MyActivity"></activity>
+        <activity android:name=".ConstipationActivity"></activity>
+        <activity android:name=".AllergyActivity" />
+        <activity android:name=".IndigestionActivity" />
+        <activity android:name=".CrampsActivity" />
+        <activity android:name=".FeverActivity" />
+        <activity android:name=".MuscleActivity" />
+        <activity android:name=".ToothacheActivity" />
+        <activity android:name=".StomachacheActivity" />
+        <activity android:name=".HeadacheActivity" />
+        <activity android:name=".ColdActivity" />
+        <activity android:name=".MyActivity" />
         <activity android:name=".ChoiceActivity" />
         <activity android:name=".AnalysisActivity" />
 

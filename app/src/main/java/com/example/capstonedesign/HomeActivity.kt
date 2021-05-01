@@ -54,10 +54,6 @@ class HomeActivity : AppCompatActivity() {
             integrator.setOrientationLocked(false) // orientation이 fullSensor일 때 orientation 변경을 허용할지 여부
             integrator.initiateScan()
         }
-
-        button2.setOnClickListener {
-            onButtonClicked()
-        }
         btn_choice.setOnClickListener {
             val intent = Intent(this, ChoiceActivity::class.java)
             intent.putExtra("msg",tv_choice.text.toString())

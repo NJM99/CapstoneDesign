@@ -43,7 +43,7 @@
         android:gravity="center|left"
         android:text="     QR 인식"
         android:textColor="#787474"
-        android:textSize="36sp"
+        android:textSize="32sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -70,7 +70,7 @@
         android:gravity="center|left"
         android:text="     증상 선택"
         android:textColor="#787474"
-        android:textSize="36sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
         android:gravity="center|left"
         android:text="     MY 알약"
         android:textColor="#787474"
-        android:textSize="36sp"
+        android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -94,8 +94,9 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="420dp"
-        android:layout_height="72dp"
+        android:layout_width="408dp"
+        android:layout_height="61dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,40 +105,41 @@
 
     <TextView
         android:id="@+id/tv_user"
-        android:layout_width="80dp"
-        android:layout_height="0dp"
+        android:layout_width="69dp"
+        android:layout_height="41dp"
         android:gravity="center"
         android:text="홍길동"
         android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/btn_setting"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.7" />
 
     <ImageButton
         android:id="@+id/btn_setting"
-        android:layout_width="70dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="39dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="12dp"
         android:background="#FFFFFF"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.592"
         app:srcCompat="@drawable/setting" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="15dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
         app:srcCompat="@drawable/user" />
 
     <Button
@@ -148,7 +150,8 @@
         android:gravity="center|left"
         android:text="     알약 촬영"
         android:textColor="#787474"
-        android:textSize="36sp"
+        android:textSize="32sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,10 +159,12 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="410dp"
-        android:layout_height="5dp"
+        android:layout_width="413dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/line" />
@@ -179,7 +184,7 @@
     <ImageView
         android:id="@+id/imageView13"
         android:layout_width="84dp"
-        android:layout_height="75dp"
+        android:layout_height="76dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.777"
@@ -195,34 +200,32 @@
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintHorizontal_bias="0.779"
         app:layout_constraintStart_toStartOf="@+id/btn_qrscan"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.403"
+        app:layout_constraintVertical_bias="0.306"
         app:srcCompat="@drawable/qrcode" />
 
     <ImageView
         android:id="@+id/imageView15"
-        android:layout_width="100dp"
-        android:layout_height="104dp"
+        android:layout_width="92dp"
+        android:layout_height="102dp"
+        android:layout_marginEnd="68dp"
         app:layout_constraintBottom_toTopOf="@+id/imageView12"
         app:layout_constraintEnd_toEndOf="@+id/btn_choice"
-        app:layout_constraintHorizontal_bias="0.816"
-        app:layout_constraintStart_toStartOf="@+id/btn_choice"
         app:layout_constraintTop_toBottomOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.446"
+        app:layout_constraintVertical_bias="0.428"
         app:srcCompat="@drawable/finger" />
 
     <ImageView
         android:id="@+id/imageView16"
-        android:layout_width="84dp"
-        android:layout_height="87dp"
+        android:layout_width="69dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="79dp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_my"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.825"
-        app:layout_constraintStart_toStartOf="@+id/btn_my"
         app:layout_constraintTop_toBottomOf="@+id/imageView12"
-        app:layout_constraintVertical_bias="0.467"
+        app:layout_constraintVertical_bias="0.521"
         app:srcCompat="@drawable/my" />
 
     <TextView

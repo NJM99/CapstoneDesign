@@ -27,7 +27,7 @@
         android:gravity="center"
         android:text="MY 알약"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,13 +44,14 @@
 
     <ImageView
         android:id="@+id/imageView18"
-        android:layout_width="401dp"
-        android:layout_height="219dp"
+        android:layout_width="391dp"
+        android:layout_height="211dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_profile"
-        app:layout_constraintVertical_bias="0.103"
+        app:layout_constraintVertical_bias="0.141"
         app:srcCompat="@drawable/square"
         app:tint="#FF906D" />
 
@@ -71,9 +72,10 @@
 
     <ImageView
         android:id="@+id/imageView19"
-        android:layout_width="0dp"
-        android:layout_height="5dp"
+        android:layout_width="412dp"
+        android:layout_height="1dp"
         android:layout_marginBottom="10dp"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

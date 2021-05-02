@@ -14,6 +14,20 @@ class AnalysisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_analysis)
 
+        val AnalysisProfileList = arrayListOf(
+            AnalysisProfiles("제조업체명", "제조업체명입니다"),
+            AnalysisProfiles("효능효과", "효능효과입니다"),
+            AnalysisProfiles("용법용량", "용법용량입니다"),
+            AnalysisProfiles("주의사항", "주의사항입니다"),
+            AnalysisProfiles("병용주의사항", "병용주의사항입니다"),
+            AnalysisProfiles("부작용", "부작용입니다"),
+            AnalysisProfiles("저장방법", "저장방법입니다")
+        )
+        rv_analysis.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_analysis.setHasFixedSize(true)
+
+        rv_analysis.adapter = AnalysisProfileAdapter(AnalysisProfileList)
+
 
         if(intent.hasExtra("pill")){//약이름
             name_pill.text=intent.getStringExtra("pill")
@@ -78,27 +92,6 @@ class AnalysisActivity : AppCompatActivity() {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
         }
 
-        setFrag(0)
 
-        btn_summary.setOnClickListener {
-            setFrag(0)
-        }
-
-        btn_detail.setOnClickListener {
-            setFrag(1)
-        }
-
-    }
-    private fun setFrag(fragNum : Int) {
-        val ft = supportFragmentManager.beginTransaction()
-        when(fragNum)
-        {
-            0 ->{
-                ft.replace(R.id.main_frame, SummaryActivity()).commit()
-            }
-            1 ->{
-                ft.replace(R.id.main_frame, DetailActivity()).commit()
-            }
-        }
     }
 }

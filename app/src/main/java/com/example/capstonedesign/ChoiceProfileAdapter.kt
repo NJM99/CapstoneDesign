@@ -86,9 +86,9 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
                 }
 
             })
-//            val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
-//            intent.putExtra("pill", choiceProfileList.get(position).choicename)//약 이름
-//            ContextCompat.startActivity(holder.itemView.context, intent, null)
+           val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
+            intent.putExtra("pill", choiceProfileList.get(position).choicename)//약 이름
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
 
         }
 

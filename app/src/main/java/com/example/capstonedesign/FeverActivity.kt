@@ -25,7 +25,7 @@ class FeverActivity : AppCompatActivity() {
             ChoiceProfiles(R.drawable.square_line, "유펜정(수출용)"),
             ChoiceProfiles(R.drawable.square_line, "타이레놀8시간이알서방정325밀리그람(아세트아미노펜)"),
             ChoiceProfiles(R.drawable.square_line, "나노펜정"),
-            ChoiceProfiles(R.drawable.square_line, "써스펜8시간이알서방정650mg(아세트아미노펜"),
+            ChoiceProfiles(R.drawable.square_line, "써스펜8시간이알서방정650mg(아세트아미노펜)"),
             ChoiceProfiles(R.drawable.square_line, "타이펜8시간이알서방정"),
             ChoiceProfiles(R.drawable.square_line, "유한폰탈정500밀리그람(메페남산)"),
             ChoiceProfiles(R.drawable.square_line, "사리돈에이정"),

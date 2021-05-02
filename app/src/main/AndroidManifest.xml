@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneDesign">
-        <activity android:name=".ConstipationActivity"></activity>
+        <activity android:name=".SubActivity"></activity>
+        <activity android:name=".ConstipationActivity" />
         <activity android:name=".AllergyActivity" />
         <activity android:name=".IndigestionActivity" />
         <activity android:name=".CrampsActivity" />

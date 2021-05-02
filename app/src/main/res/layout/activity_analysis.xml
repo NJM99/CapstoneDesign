@@ -101,7 +101,7 @@
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
-                android:layout_height="328dp"
+                android:layout_height="381dp"
                 android:textColor="#989898" />
 
         </LinearLayout>

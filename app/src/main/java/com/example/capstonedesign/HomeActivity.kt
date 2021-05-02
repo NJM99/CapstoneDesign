@@ -65,13 +65,6 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-    fun onButtonClicked(){
-        Log.d("", "HomeActivity-ButtonClicked() called")
-
-        val intent = Intent(this, AnalysisActivity::class.java)
-        startActivity(intent)
-    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {

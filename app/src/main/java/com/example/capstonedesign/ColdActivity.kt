@@ -30,13 +30,12 @@ class ColdActivity : AppCompatActivity() {
             ChoiceProfiles(R.drawable.square_line, "토우펜정(수출용)"),
             ChoiceProfiles(R.drawable.square_line, "에카씬정"),
             ChoiceProfiles(R.drawable.square_line, "루트펜325밀리그램정(아세트아미노펜)"),
-            ChoiceProfiles(R.drawable.square_line, "트라몰정325밀리그람(아세트아미노펜"),
+            ChoiceProfiles(R.drawable.square_line, "트라몰정325밀리그람(아세트아미노펜)"),
             ChoiceProfiles(R.drawable.square_line, "슈카민정"),
             ChoiceProfiles(R.drawable.square_line, "스코펜정400밀리그램(이부프로펜)"),
             ChoiceProfiles(R.drawable.square_line, "타스펜8시간이알서방정650밀리그람(아세트아미노펜)(수출명:도로돈이알정)"),
             ChoiceProfiles(R.drawable.square_line, "라페론정160밀리그람(아세트아미노펜)"),
             ChoiceProfiles(R.drawable.square_line, "타스멘정(아세트아미노펜)")
-
 
         )
         rv_cold.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)

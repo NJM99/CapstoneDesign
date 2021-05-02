@@ -1,16 +1,26 @@
 package com.example.capstonedesign
 
 import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.list_choice.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.nio.file.Paths.get
 
 class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : RecyclerView.Adapter<ChoiceProfileAdapter.CustomViewHolder>() {
 
@@ -30,7 +40,41 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
     override fun onBindViewHolder(holder: ChoiceProfileAdapter.CustomViewHolder, position: Int) {
         holder.square_line.setImageResource(choiceProfileList.get(position).square_line)
         holder.choicename.text = choiceProfileList.get(position).choicename
+
+        //레트로핏 객체 생성
+        var retrofit = Retrofit.Builder()
+            .baseUrl("http://localhost:7000")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        //create을 통해 서비스를 올려줌
+        var pillService = retrofit.create(PillService::class.java)
+
         holder.itemView.btn_dt.setOnClickListener{//상세정보 버튼 클릭
+
+            var pillName = choiceProfileList.get(position).choicename.toString()
+
+            pillService.requestPill(pillName).enqueue(object: Callback<Pill>{
+                override fun onFailure(call: Call<Pill>, t: Throwable) {
+                    //통신 실패 (인터넷 끊김, 시스템적 문제 발생)
+                    Log.d("FAIL","onFailure: 통신 실패")
+                }
+
+                override fun onResponse(call: Call<Pill>, response: Response<Pill>) {
+                    if(response.isSuccessful()){
+                        //정상적으로 통신이 성공된 경우
+                        Log.d("SUCCESS","onResponse: 성공")
+                    }
+                    else{
+                        //통신 실패한 경우(응답코드 3xx, 4xx 등)
+                        Log.d("FAIL"," onResponse: 통신 실패")
+                    }
+
+                }
+
+            })
+
+
             val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
             intent.putExtra("pill", choiceProfileList.get(position).choicename)
             ContextCompat.startActivity(holder.itemView.context, intent, null)

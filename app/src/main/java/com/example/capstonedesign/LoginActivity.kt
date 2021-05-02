@@ -54,7 +54,7 @@ class LoginActivity : AppCompatActivity() {
                         dialog.setTitle("알림")
                         dialog.setMessage("로그인 성공")
                         dialog.show()
-                        //onLoginClicked()
+                        //onLoginClicked() 실제로그인
                     }
                     else{
                         //통신 실패한 경우(응답코드 3xx, 4xx 등)

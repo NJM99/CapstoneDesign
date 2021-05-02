@@ -40,6 +40,10 @@ class LoginActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<Login>, t: Throwable) {
                     //통신 실패 (인터넷 끊김, 시스템적 문제 발생)
                     Log.d("FAIL","onFailure: 통신 실패")
+                    var dialog = AlertDialog.Builder(this@LoginActivity)
+                    dialog.setTitle("알림")
+                    dialog.setMessage("로그인에 실패했습니다.")
+                    dialog.show()
                 }
 
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
@@ -50,15 +54,20 @@ class LoginActivity : AppCompatActivity() {
                         dialog.setTitle("알림")
                         dialog.setMessage("로그인 성공")
                         dialog.show()
+                        //onLoginClicked()
                     }
                     else{
                         //통신 실패한 경우(응답코드 3xx, 4xx 등)
                         Log.d("FAIL"," onResponse: 통신 실패")
+                        var dialog = AlertDialog.Builder(this@LoginActivity)
+                        dialog.setTitle("알림")
+                        dialog.setMessage("로그인에 실패했습니다.")
+                        dialog.show()
                     }
                 }
 
             })
-            onLoginClicked()
+           onLoginClicked()
 
         }
 

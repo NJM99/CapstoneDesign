@@ -34,7 +34,7 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
     override fun onBindViewHolder(holder: ChoiceProfileAdapter.CustomViewHolder, position: Int) {
         holder.square_line.setImageResource(choiceProfileList.get(position).square_line)
         holder.choicename.text = choiceProfileList.get(position).choicename
-        holder.itemView.btn_dt.setOnClickListener{
+        holder.itemView.btn_dt.setOnClickListener{//상세정보 버튼 클릭
             val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
             intent.putExtra("pill", choiceProfileList.get(position).choicename)
             ContextCompat.startActivity(holder.itemView.context, intent, null)

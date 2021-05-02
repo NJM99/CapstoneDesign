@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.list_choice.view.*
+import java.nio.file.Paths.get
 
 class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : RecyclerView.Adapter<ChoiceProfileAdapter.CustomViewHolder>() {
 
@@ -33,9 +34,9 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
     override fun onBindViewHolder(holder: ChoiceProfileAdapter.CustomViewHolder, position: Int) {
         holder.square_line.setImageResource(choiceProfileList.get(position).square_line)
         holder.choicename.text = choiceProfileList.get(position).choicename
-
         holder.itemView.btn_dt.setOnClickListener{
             val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
+            intent.putExtra("pill", choiceProfileList.get(position).choicename)
             ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
 

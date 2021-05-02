@@ -36,13 +36,14 @@ class ColdActivity : AppCompatActivity() {
             ChoiceProfiles(R.drawable.square_line, "타스펜8시간이알서방정650밀리그람(아세트아미노펜)(수출명:도로돈이알정)"),
             ChoiceProfiles(R.drawable.square_line, "라페론정160밀리그람(아세트아미노펜)"),
             ChoiceProfiles(R.drawable.square_line, "타스멘정(아세트아미노펜)")
+
+
         )
         rv_cold.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_cold.setHasFixedSize(true)
 
         rv_cold.adapter = ChoiceProfileAdapter(choiceProfileList)
     }
-
     fun onBtnBackClicked(){
         Log.d("", "ColdActivity-onBtnBackClicked() called")
 

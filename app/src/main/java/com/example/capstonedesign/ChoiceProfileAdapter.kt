@@ -41,13 +41,11 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
         holder.square_line.setImageResource(choiceProfileList.get(position).square_line)
         holder.choicename.text = choiceProfileList.get(position).choicename
 
-        //레트로핏 객체 생성
         var retrofit = Retrofit.Builder()
             .baseUrl("http://10.0.2.2:7000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        //create을 통해 서비스를 올려줌
         var pillService = retrofit.create(PillService::class.java)
 
         holder.itemView.btn_dt.setOnClickListener{//상세정보 버튼 클릭
@@ -80,15 +78,15 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
 
                     else{
                         //통신 실패한 경우(응답코드 3xx, 4xx 등)
-                        Log.d("FAIL"," onResponse: 통신 실패")
+                        Log.d("FAIL"," onResponse: 통신 실패(응답코드 3xx, 4xx)")
                     }
 
                 }
 
             })
-           val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
-            intent.putExtra("pill", choiceProfileList.get(position).choicename)//약 이름
-            ContextCompat.startActivity(holder.itemView.context, intent, null)
+//           val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
+//            intent.putExtra("pill", choiceProfileList.get(position).choicename)//약 이름
+//            ContextCompat.startActivity(holder.itemView.context, intent, null)
 
         }
 

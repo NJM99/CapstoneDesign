@@ -15,7 +15,63 @@ class AnalysisActivity : AppCompatActivity() {
         setContentView(R.layout.activity_analysis)
 
 
-        if(intent.hasExtra("pill")){
+        if(intent.hasExtra("pill")){//약이름
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//제조업체
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//알약 이미지
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//효능효과
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//용법용량
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//주의사항
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//병용주의사항
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//부작용
+            name_pill.text=intent.getStringExtra("pill")
+        }
+        else{
+            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+        }
+
+        if(intent.hasExtra("pill")){//저장방법
             name_pill.text=intent.getStringExtra("pill")
         }
         else{

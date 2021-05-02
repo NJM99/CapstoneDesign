@@ -43,7 +43,7 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
 
         //레트로핏 객체 생성
         var retrofit = Retrofit.Builder()
-            .baseUrl("http://localhost:7000")
+            .baseUrl("http://10.0.2.2:7000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -64,7 +64,20 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
                     if(response.isSuccessful()){
                         //정상적으로 통신이 성공된 경우
                         Log.d("SUCCESS","onResponse: 성공")
+                        var data=response.body()
+                        val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
+                        intent.putExtra("pill", choiceProfileList.get(position).choicename)//약 이름
+                        intent.putExtra("entpName", data?.entpName)//제조업체
+                        intent.putExtra("itemImage",data?.itemImage)//알약 이미지
+                        intent.putExtra("efficiency", data?.efficiency)//효능효과
+                        intent.putExtra("useMethod", data?.useMethod)//용법용량
+                        intent.putExtra("warning", data?.warning)//주의사항
+                        intent.putExtra("intrcnt", data?.intrcnt)//병용주의사항
+                        intent.putExtra("sideEffect", data?.sideEffect)//부작용
+                        intent.putExtra("depositMethod", data?.depositMethod)//저장방법
+                        ContextCompat.startActivity(holder.itemView.context, intent, null)
                     }
+
                     else{
                         //통신 실패한 경우(응답코드 3xx, 4xx 등)
                         Log.d("FAIL"," onResponse: 통신 실패")
@@ -73,11 +86,10 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
                 }
 
             })
+//            val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
+//            intent.putExtra("pill", choiceProfileList.get(position).choicename)//약 이름
+//            ContextCompat.startActivity(holder.itemView.context, intent, null)
 
-
-            val intent = Intent(holder.itemView?.context, AnalysisActivity::class.java)
-            intent.putExtra("pill", choiceProfileList.get(position).choicename)
-            ContextCompat.startActivity(holder.itemView.context, intent, null)
         }
 
     }

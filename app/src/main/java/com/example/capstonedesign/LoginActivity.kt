@@ -19,24 +19,21 @@ class LoginActivity : AppCompatActivity() {
 
         //레트로핏 객체 생성
         var retrofit = Retrofit.Builder()
-                .baseUrl("http://localhost:7000")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
-        //create을 통해 서비스를 올려줌
-        var loginService = retrofit.create(LoginService::class.java)
+            .baseUrl("http://10.0.2.2:7000")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
         btnBack.setOnClickListener {
             onBtnBackClicked()
         }
 
-
         btnLogin.setOnClickListener {
-
+            //create을 통해 서비스를 올려줌
+            var loginService = retrofit.create(LoginService::class.java)
             var textID = et_id2.text.toString()
             var textPW = et_pass2.text.toString()
 
-            loginService.requestLogin(textID,textPW).enqueue(object: Callback<Login>{
+            loginService.requestLogin(textID, textPW).enqueue(object: Callback<Login>{
                 override fun onFailure(call: Call<Login>, t: Throwable) {
                     //통신 실패 (인터넷 끊김, 시스템적 문제 발생)
                     Log.d("FAIL","onFailure: 통신 실패")
@@ -47,27 +44,27 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
+                    var result = response.body()
+                    Log.d("TEST1", "isSuccessful: "+"${response.isSuccessful()}")
                     if(response.isSuccessful()){
                         //정상적으로 통신이 성공된 경우
-                        Log.d("SUCCESS","onResponse: 성공, 결과\n"+response.body().toString())
+                        Log.d("TEST2", "${response}")
                         var dialog = AlertDialog.Builder(this@LoginActivity)
                         dialog.setTitle("알림")
                         dialog.setMessage("로그인 성공")
                         dialog.show()
-                        //onLoginClicked() 실제로그인
+                        // onLoginClicked() // 실제로그인
                     }
-                    else{
-                        //통신 실패한 경우(응답코드 3xx, 4xx 등)
-                        Log.d("FAIL"," onResponse: 통신 실패")
-                        var dialog = AlertDialog.Builder(this@LoginActivity)
-                        dialog.setTitle("알림")
-                        dialog.setMessage("로그인에 실패했습니다.")
-                        dialog.show()
-                    }
+
+                    Log.d("TEST3", "response: "+"${response}")
+                    var dialog = AlertDialog.Builder(this@LoginActivity)
+                    dialog.setTitle("알림")
+                    dialog.setMessage("message: " + result)
+                    dialog.show()
                 }
 
             })
-           onLoginClicked()
+            onLoginClicked()
 
         }
 

@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_analysis.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Date.from
 
 class AnalysisActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,10 @@ class AnalysisActivity : AppCompatActivity() {
         else{
             Toast.makeText(this, "Error3", Toast.LENGTH_SHORT).show()
         }
+
+        Glide.with(this).load(intent.getStringExtra("itemImage"))
+            .error(R.drawable.error)//사진을 불러오지 못했을 때 오류 이미지
+            .into(image_pill)
 
         if(intent.hasExtra("efficiency")){//효능효과
             intent.getStringExtra("efficiency")

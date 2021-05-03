@@ -14,6 +14,9 @@ import com.example.capstonedesign.databinding.ActivityHomeBinding
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_create.*
 import kotlinx.android.synthetic.main.activity_home.*
+import retrofit2.Callback
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 
 private const val REQUEST_CODE_FOR_IMAGE_CAPTURE = 100
@@ -64,6 +67,7 @@ class HomeActivity : AppCompatActivity() {
             intent.putExtra("msg",tv_my.text.toString())
             startActivity(intent)
         }
+
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)

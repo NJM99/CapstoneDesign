@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                         dialog.setTitle("알림")
                         dialog.setMessage("로그인 성공")
                         dialog.show()
-                        Timer().schedule(2000) {
+                        Timer().schedule(1000) {
                             onLoginClicked()
                         }
                     }

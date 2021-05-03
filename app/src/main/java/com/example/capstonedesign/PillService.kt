@@ -8,7 +8,7 @@ import retrofit2.http.POST
 interface PillService {
 
     @FormUrlEncoded
-    @POST("/drug/save")
+    @POST("/drug/search2")
     fun requestPill(
         @Field("itemName") itemName:String
     ) : Call<Pill>

@@ -12,37 +12,24 @@ import androidx.core.content.FileProvider
 import com.bumptech.glide.Glide
 import com.example.capstonedesign.databinding.ActivityHomeBinding
 import com.google.zxing.integration.android.IntentIntegrator
+import kotlinx.android.synthetic.main.activity_choice.*
 import kotlinx.android.synthetic.main.activity_create.*
 import kotlinx.android.synthetic.main.activity_home.*
 import java.io.File
 
-private const val REQUEST_CODE_FOR_IMAGE_CAPTURE = 100
-private const val TAG = "HomeActivity"
-
 class HomeActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityHomeBinding
-    private lateinit var photoFile: File
+    private val TAG = "HomeActivity"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_home)
 
-        binding.btnCamera.setOnClickListener {
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            if (intent.resolveActivity(packageManager) != null) {
-                //val dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES) // photos will be deleted when the app is uninstalled
-                val dir = externalCacheDir // photo can be deleted when the app is terminated
-                val file = File.createTempFile("photo_", ".jpg", dir)
-                val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, uri)
-                startActivityForResult(intent, REQUEST_CODE_FOR_IMAGE_CAPTURE)
-                photoFile = file
-            }
-        }
         if (intent.hasExtra("msg")){
             tv_user.text = intent.getStringExtra("msg")
+        }
+
+        btn_camera.setOnClickListener {
+            onCameraButtonClicked()
         }
         btn_qrscan.setOnClickListener {
             val integrator = IntentIntegrator(this)
@@ -85,20 +72,13 @@ class HomeActivity : AppCompatActivity() {
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
-            when (requestCode) {
-                REQUEST_CODE_FOR_IMAGE_CAPTURE -> {
-                    if (resultCode == RESULT_OK) {
-//                    BitmapFactory.decodeFile(photoFile.absolutePath)?.let {
-//                        binding.image.setImageBitmap(it)
-//                    }
-//                        Glide.with(this).load(photoFile)
-//                            .into(binding.image) // call .centerCrop() .circleCrop() before .into()
-                    } else {
-                        Toast.makeText(this, "취소 되었습니다", Toast.LENGTH_LONG).show()
-                    }
-                }
-            }
 
         }
+    }
+    fun onCameraButtonClicked() {
+        Log.d("", "HomeActivity-onButtonClicked() called")
+
+        val intent = Intent(this, CameraActivity::class.java)
+        startActivity(intent)
     }
 }

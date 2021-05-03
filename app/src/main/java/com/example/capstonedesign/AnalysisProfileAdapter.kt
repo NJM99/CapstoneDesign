@@ -1,5 +1,7 @@
 package com.example.capstonedesign
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.list_analysis.view.*
 import kotlinx.android.synthetic.main.list_choice.view.*
 
 class AnalysisProfileAdapter (val AnalysisProfileList: ArrayList<AnalysisProfiles>) : RecyclerView.Adapter<AnalysisProfileAdapter.CustomViewHolder>() {
@@ -41,3 +44,4 @@ class AnalysisProfileAdapter (val AnalysisProfileList: ArrayList<AnalysisProfile
 
     }
 }
+

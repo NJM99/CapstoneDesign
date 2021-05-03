@@ -16,9 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneDesign">
-        <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".SummaryActivity" />
-        <activity android:name=".ExampleActivity" />
+        <activity android:name=".CameraActivity"></activity>
         <activity android:name=".ConstipationActivity" />
         <activity android:name=".AllergyActivity" />
         <activity android:name=".IndigestionActivity" />

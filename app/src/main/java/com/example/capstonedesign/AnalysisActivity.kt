@@ -14,6 +14,7 @@ class AnalysisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_analysis)
 
+
         if(intent.hasExtra("pill")){//약이름
             name_pill.text=intent.getStringExtra("pill")
         }
@@ -76,6 +77,9 @@ class AnalysisActivity : AppCompatActivity() {
         else{
             Toast.makeText(this, "Error9", Toast.LENGTH_SHORT).show()
         }
+
+
+
 
         val AnalysisProfileList = arrayListOf(
             AnalysisProfiles("효능효과", intent.getStringExtra("efficiency").toString()),

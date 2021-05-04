@@ -88,7 +88,6 @@ class AnalysisActivity : AppCompatActivity() {
         }
 
 
-
         val AnalysisProfileList = arrayListOf(
                 Model(multi_type1,"효능효과", intent.getStringExtra("efficiency").toString()),
                 Model(multi_type1,"제조업체명", intent.getStringExtra("entpName").toString()),
@@ -115,7 +114,7 @@ class AnalysisActivity : AppCompatActivity() {
     fun onBtnYesClicked(){
         Log.d("", "AnalysisActivity-onBtnYesClicked() called")
         val intent = Intent(this, MyActivity::class.java)
-        intent.putExtra("mypill", intent.getStringExtra("pill"))//알약 보내기
+        intent.putExtra("mypill", name_pill.text.toString())//알약 보내기
         startActivity(intent)
     }
 

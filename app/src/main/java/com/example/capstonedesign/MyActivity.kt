@@ -17,10 +17,11 @@ class MyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my)
 
-        if (intent.hasExtra("msg")){
+        if (intent.hasExtra("msg")){//?
             textView5.text = intent.getStringExtra("msg")
         }
-        if(intent.hasExtra("mypill")){//주의사항
+
+        if (intent.hasExtra("mypill")){
             intent.getStringExtra("mypill")
         }
 

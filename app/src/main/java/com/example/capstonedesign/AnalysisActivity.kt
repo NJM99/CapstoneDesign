@@ -1,15 +1,13 @@
 package com.example.capstonedesign
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.capstonedesign.Model.Companion.multi_type1
+import com.example.capstonedesign.Model.Companion.multi_type2
 import kotlinx.android.synthetic.main.activity_analysis.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.util.Date.from
 
 class AnalysisActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,25 +83,19 @@ class AnalysisActivity : AppCompatActivity() {
         }
 
 
-
-
         val AnalysisProfileList = arrayListOf(
-            AnalysisProfiles("효능효과", intent.getStringExtra("efficiency").toString()),
-            AnalysisProfiles("제조업체명", intent.getStringExtra("entpName").toString()),
-            AnalysisProfiles("용법용량", intent.getStringExtra("useMethod").toString()),
-            AnalysisProfiles("주의사항", intent.getStringExtra("warning").toString()),
-            AnalysisProfiles("병용주의사항", intent.getStringExtra("intrcnt").toString()),
-            AnalysisProfiles("부작용", intent.getStringExtra("sideEffect").toString()),
-            AnalysisProfiles("저장방법", intent.getStringExtra("depositMethod").toString())
+                Model(multi_type1,"효능효과", intent.getStringExtra("efficiency").toString()),
+                Model(multi_type1,"제조업체명", intent.getStringExtra("entpName").toString()),
+                Model(multi_type1,"용법용량", intent.getStringExtra("useMethod").toString()),
+                Model(multi_type2,"주의사항", intent.getStringExtra("warning").toString()),
+                Model(multi_type2,"병용주의사항", intent.getStringExtra("intrcnt").toString()),
+                Model(multi_type2,"부작용", intent.getStringExtra("sideEffect").toString()),
+                Model(multi_type1,"저장방법", intent.getStringExtra("depositMethod").toString())
         )
         rv_analysis.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_analysis.setHasFixedSize(true)
 
         rv_analysis.adapter = AnalysisProfileAdapter(AnalysisProfileList)
-
-
-
-
 
     }
 }

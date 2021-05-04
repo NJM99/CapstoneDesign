@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_login.*
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,6 +40,11 @@ class LoginActivity : AppCompatActivity() {
             loginService.requestLogin(textID, textPW).enqueue(object: Callback<Login>{
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
                     var result = response.body()
+                    //var jsonString= result?.token
+                    //val userName= JSONObject().getJSONObject("user")
+                    // tokenObject = result?.token//json 객체 받아오기
+                    //var username = tokenObject?.getString("name")
+
                     Log.d("TEST1", "isSuccessful: "+"${response.isSuccessful()}")
                     if(response.isSuccessful()){
                         //정상적으로 통신이 성공된 경우
@@ -51,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
                             onLoginClicked()
                         }
                     }
-                    Log.d("TEST3", "${result}")
+                    Log.d("TEST3", "${result?.message}")
                 }
 
                 override fun onFailure(call: Call<Login>, t: Throwable) {

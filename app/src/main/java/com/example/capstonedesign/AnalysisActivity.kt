@@ -1,13 +1,18 @@
 package com.example.capstonedesign
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.capstonedesign.Model.Companion.multi_type1
 import com.example.capstonedesign.Model.Companion.multi_type2
 import kotlinx.android.synthetic.main.activity_analysis.*
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.Date.from
 
 class AnalysisActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,6 +88,7 @@ class AnalysisActivity : AppCompatActivity() {
         }
 
 
+
         val AnalysisProfileList = arrayListOf(
                 Model(multi_type1,"효능효과", intent.getStringExtra("efficiency").toString()),
                 Model(multi_type1,"제조업체명", intent.getStringExtra("entpName").toString()),
@@ -97,6 +103,27 @@ class AnalysisActivity : AppCompatActivity() {
 
         rv_analysis.adapter = AnalysisProfileAdapter(AnalysisProfileList)
 
+        btn_yes.setOnClickListener {
+            onBtnYesClicked()
+        }
+
+        btn_no.setOnClickListener {
+            onBtnNoClicked()
+        }
+    }
+
+    fun onBtnYesClicked(){
+        Log.d("", "AnalysisActivity-onBtnYesClicked() called")
+        val intent = Intent(this, MyActivity::class.java)
+        intent.putExtra("mypill", intent.getStringExtra("pill"))//알약 보내기
+        startActivity(intent)
+    }
+
+    fun onBtnNoClicked(){
+        Log.d("", "AnalysisActivity-onBtnNoClicked() called")
+
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 }
 

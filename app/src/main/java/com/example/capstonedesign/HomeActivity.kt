@@ -8,17 +8,26 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.AnalogClock
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import com.bumptech.glide.Glide
 import com.example.capstonedesign.databinding.ActivityHomeBinding
 import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentResult
+import kotlinx.android.synthetic.main.activity_camera.*
 import kotlinx.android.synthetic.main.activity_choice.*
 import kotlinx.android.synthetic.main.activity_create.*
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
+import java.util.*
+import java.util.Objects.toString
+import kotlin.concurrent.schedule
 
 class HomeActivity : AppCompatActivity() {
     private val TAG = "HomeActivity"
@@ -26,6 +35,8 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+
+
 
         if (intent.hasExtra("msg")){
             tv_user.text = intent.getStringExtra("msg")
@@ -57,7 +68,18 @@ class HomeActivity : AppCompatActivity() {
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+
+        var retrofit = Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:7000")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
+        var qrService = retrofit.create(QrService::class.java)
+
+        var call: Call<Qr> = qrService.requestQr("result.contents")
+
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
         if (result != null) {
             // result.contents에는 스캔한 결과가 포함된다. 만약 null이라면 사용자가 스캔을 완료하지 않고 QR 리더 액티비티를 종료한 것이다.
             if (result.contents != null) {
@@ -72,7 +94,7 @@ class HomeActivity : AppCompatActivity() {
             if (result.barcodeImagePath != null) {
                 Log.i(TAG, "onActivityResult: ${result.barcodeImagePath}")
                 val bitmap = BitmapFactory.decodeFile(result.barcodeImagePath)
-//                image.setImageBitmap(bitmap)
+                image.setImageBitmap(bitmap)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

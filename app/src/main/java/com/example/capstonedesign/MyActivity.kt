@@ -30,15 +30,6 @@ class MyActivity : AppCompatActivity() {
         }
         val profileList = arrayListOf(
             Profiles(R.drawable.line, intent.getStringExtra("mypill").toString())
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-//            Profiles(R.drawable.line, "타세놀8시간이알서방정")
-
         )
         rv_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_profile.setHasFixedSize(true)

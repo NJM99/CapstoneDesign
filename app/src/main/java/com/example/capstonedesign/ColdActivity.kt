@@ -37,6 +37,7 @@ class ColdActivity : AppCompatActivity() {
             ChoiceProfiles(R.drawable.square_line, "라페론정160밀리그람(아세트아미노펜)"),
             ChoiceProfiles(R.drawable.square_line, "타스멘정(아세트아미노펜)")
 
+
         )
         rv_cold.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_cold.setHasFixedSize(true)

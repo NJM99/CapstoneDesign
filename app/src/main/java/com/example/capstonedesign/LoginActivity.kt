@@ -40,10 +40,7 @@ class LoginActivity : AppCompatActivity() {
             loginService.requestLogin(textID, textPW).enqueue(object: Callback<Login>{
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
                     var result = response.body()
-                    //var jsonString= result?.token
-                    //val userName= JSONObject().getJSONObject("user")
-                    // tokenObject = result?.token//json 객체 받아오기
-                    //var username = tokenObject?.getString("name")
+                    var username = result?.token?.name
 
                     Log.d("TEST1", "isSuccessful: "+"${response.isSuccessful()}")
                     if(response.isSuccessful()){
@@ -54,7 +51,10 @@ class LoginActivity : AppCompatActivity() {
                         dialog.setMessage("로그인 성공")
                         dialog.show()
                         Timer().schedule(1000) {
-                            onLoginClicked()
+                            Log.d("","LoginActivity-onLoginClicked() called")
+                            val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                            intent.putExtra("username",username.toString())
+                            startActivity(intent)
                         }
                     }
                     Log.d("TEST3", "${result?.message}")
@@ -84,7 +84,6 @@ class LoginActivity : AppCompatActivity() {
         Log.d("","LoginActivity-onLoginClicked() called")
 
         val intent = Intent(this, HomeActivity::class.java)
-        intent.putExtra("msg",et_id2.text.toString())
         startActivity(intent)
     }
 }

@@ -17,23 +17,19 @@ class MyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my)
 
-        if (intent.hasExtra("msg")){
+        if (intent.hasExtra("msg")){//?
             textView5.text = intent.getStringExtra("msg")
         }
+
+        if (intent.hasExtra("mypill")){
+            intent.getStringExtra("mypill")
+        }
+
         btnBack3.setOnClickListener {
             onBtnBackClicked()
         }
         val profileList = arrayListOf(
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정"),
-            Profiles(R.drawable.line, "타세놀8시간이알서방정")
-
+            Profiles(R.drawable.line, intent.getStringExtra("mypill").toString())
         )
         rv_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rv_profile.setHasFixedSize(true)

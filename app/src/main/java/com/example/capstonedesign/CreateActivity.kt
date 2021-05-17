@@ -18,10 +18,17 @@ class CreateActivity : AppCompatActivity() {
             onBtnCreateClicked()
         }
 
-        if(all_check.isChecked == true){
-            second.setChecked(true)
-            third.setChecked(true)
-            forth.setChecked(true)
+        all_check.setOnClickListener {
+            if (all_check.isChecked == true) {
+                second.setChecked(true)
+                third.setChecked(true)
+                forth.setChecked(true)
+            } else {
+                all_check.setChecked(false)
+                second.setChecked(false)
+                third.setChecked(false)
+                forth.setChecked(false)
+            }
         }
     }
     fun onBackButtonClicked(){

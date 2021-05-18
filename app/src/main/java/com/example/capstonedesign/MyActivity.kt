@@ -24,41 +24,16 @@ class MyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my)
 
-        var retrofit = Retrofit.Builder()
-            .baseUrl("http://13.209.10.103/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        var myService = retrofit.create(MyService::class.java)
-
-        val profileList = arrayListOf(
-            myService.requestMy().enqueue(object: Callback<My> {
-                override fun onFailure(call: Call<My>, t: Throwable) {
-                    Log.d("TEST","onFailure: 통신 실패")
-                    var dialog = AlertDialog.Builder(this@MyActivity)
-                    dialog.setTitle("알림")
-                    dialog.setMessage("My알약을 불러오는데 실패했습니다.")
-                    dialog.show()
-                }
-                override fun onResponse(call: Call<My>, response: Response<My>) {
-                    for (item in response.body()?.data!! ){
-                        val res = item.itemName
-                        Profiles(R.drawable.line, res.toString())
-                    }
-                }
-            })
-        )
-
-        rv_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rv_profile.setHasFixedSize(true)
-        rv_profile.adapter = ProfileAdapter(profileList)
+//        var retrofit = Retrofit.Builder()
+//            .baseUrl("http://13.209.10.103/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
 
 
 //        var myService = retrofit.create(MyService::class.java)
-//        var pillname = name_pill.text.toString()
-//        myService.requestMy(pillname).enqueue(object: Callback<My> {
+//        myService.requestMy().enqueue(object: Callback<My> {
 //            override fun onFailure(call: Call<My>, t: Throwable) {
-//                Log.d("TEST","onFailure: 통신 실패")
+//                Log.d("TEST5","onFailure: 통신 실패")
 //                var dialog = AlertDialog.Builder(this@MyActivity)
 //                dialog.setTitle("알림")
 //                dialog.setMessage("My알약을 불러오는데 실패했습니다.")
@@ -70,6 +45,10 @@ class MyActivity : AppCompatActivity() {
 //                    val profileList = arrayListOf(
 //                        Profiles(R.drawable.line, res.toString())
 //                    )
+//                    rv_profile.layoutManager = LinearLayoutManager(this@MyActivity, LinearLayoutManager.VERTICAL, false)
+//                    rv_profile.setHasFixedSize(true)
+//
+//                    rv_profile.adapter = ProfileAdapter(profileList)
 //                }
 //            }
 //        })
@@ -81,11 +60,17 @@ class MyActivity : AppCompatActivity() {
         btnBack3.setOnClickListener {
             onBtnBackClicked()
         }
+        val profileList = arrayListOf(
+            Profiles(R.drawable.line, "씨콜드코프정"),
+            Profiles(R.drawable.line, "케토라신정"),
+            Profiles(R.drawable.line, "아펜탁정"),
+            Profiles(R.drawable.line, "부루펜정200밀리그램(이부프로펜)")
+        )
 
-//        rv_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//        rv_profile.setHasFixedSize(true)
-//
-//        rv_profile.adapter = ProfileAdapter(profileList)
+        rv_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_profile.setHasFixedSize(true)
+
+        rv_profile.adapter = ProfileAdapter(profileList)
     }
     fun onBtnBackClicked(){
         Log.d("", "LoginActivity-onBtnBackClicked() called")

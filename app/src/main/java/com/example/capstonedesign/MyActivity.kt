@@ -44,15 +44,14 @@ class MyActivity : AppCompatActivity() {
                     for (item in response.body()?.data!! ){
                         val res = item.itemName
                         Profiles(R.drawable.line, res.toString())
-
                     }
                 }
             })
         )
 
-//        rv_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//        rv_profile.setHasFixedSize(true)
-//        rv_profile.adapter = ProfileAdapter(profileList)
+        rv_profile.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rv_profile.setHasFixedSize(true)
+        rv_profile.adapter = ProfileAdapter(profileList)
 
 
 //        var myService = retrofit.create(MyService::class.java)
@@ -90,7 +89,6 @@ class MyActivity : AppCompatActivity() {
     }
     fun onBtnBackClicked(){
         Log.d("", "LoginActivity-onBtnBackClicked() called")
-
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }

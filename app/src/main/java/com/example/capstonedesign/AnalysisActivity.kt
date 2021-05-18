@@ -5,11 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.capstonedesign.Model.Companion.multi_type1
 import com.example.capstonedesign.Model.Companion.multi_type2
 import kotlinx.android.synthetic.main.activity_analysis.*
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.Date.from
@@ -19,6 +24,10 @@ class AnalysisActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_analysis)
 
+        var retrofit = Retrofit.Builder()
+                .baseUrl("http://13.209.10.103/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
 
         if(intent.hasExtra("pill")){//약이름
             name_pill.text=intent.getStringExtra("pill")
@@ -103,7 +112,31 @@ class AnalysisActivity : AppCompatActivity() {
         rv_analysis.adapter = AnalysisProfileAdapter(AnalysisProfileList)
 
         btn_yes.setOnClickListener {
-            onBtnYesClicked()
+            var addService = retrofit.create(AddService::class.java)
+            var pillname = name_pill.text.toString()
+            addService.requestAdd(pillname).enqueue(object: Callback<Add>{
+                override fun onFailure(call: Call<Add>, t: Throwable) {
+                    //통신 실패 (인터넷 끊김, 시스템적 문제 발생)
+                    Log.d("TEST","onFailure: 통신 실패")
+                    var dialog = AlertDialog.Builder(this@AnalysisActivity)
+                    dialog.setTitle("알림")
+                    dialog.setMessage("알약을 추가하는데 실패했습니다.")
+                    dialog.show()
+                }
+
+                override fun onResponse(call: Call<Add>, response: Response<Add>) {
+                    //정상적으로 통신이 성공된 경우
+                    val result = response.body()?.message
+                    var dialog = AlertDialog.Builder(this@AnalysisActivity)
+                    dialog.setTitle("알림")
+                    dialog.setMessage(result.toString())
+                    dialog.show()
+                    onBtnYesClicked()
+
+                }
+
+            })
+
         }
 
         btn_no.setOnClickListener {
@@ -113,9 +146,9 @@ class AnalysisActivity : AppCompatActivity() {
 
     fun onBtnYesClicked(){
         Log.d("", "AnalysisActivity-onBtnYesClicked() called")
-        val intent = Intent(this, MyActivity::class.java)
-        intent.putExtra("mypill", name_pill.text.toString())//알약 보내기
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
+
     }
 
     fun onBtnNoClicked(){

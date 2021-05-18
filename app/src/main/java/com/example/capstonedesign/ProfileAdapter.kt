@@ -38,10 +38,8 @@ class ProfileAdapter(val profileList: ArrayList<Profiles>) : RecyclerView.Adapte
                 if(profileList.isNotEmpty())
                     profileList.remove(profileList[position])
                 notifyDataSetChanged()
-
             }
         })
-
     }
 
     override fun getItemCount(): Int {

@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
         //레트로핏 객체 생성
         var retrofit = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:7000")
+                .baseUrl("http://13.209.10.103/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

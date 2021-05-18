@@ -32,7 +32,6 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
                 val curPos : Int = adapterPosition
                 val profile: ChoiceProfiles = choiceProfileList.get(curPos)
                 Toast.makeText(parent.context, "약이름 : ${profile.choicename}\n", Toast.LENGTH_SHORT).show()
-
             }
         }
     }
@@ -42,7 +41,7 @@ class ChoiceProfileAdapter(val choiceProfileList: ArrayList<ChoiceProfiles>) : R
         holder.choicename.text = choiceProfileList.get(position).choicename
 
         var retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:7000")
+            .baseUrl("http://13.209.10.103/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

@@ -36,10 +36,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
-
-        if (intent.hasExtra("msg")){
-            tv_user.text = intent.getStringExtra("msg")
+        if (intent.hasExtra("username")){
+            tv_user.text = intent.getStringExtra("username")
         }
 
         btn_camera.setOnClickListener {

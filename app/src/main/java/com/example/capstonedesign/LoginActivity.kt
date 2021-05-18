@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        //레트로핏 객체 생성
+        //레트로핏 객체 생성ㅇ
         var retrofit = Retrofit.Builder()
                 .baseUrl("http://13.209.10.103/")
                 .addConverterFactory(GsonConverterFactory.create())

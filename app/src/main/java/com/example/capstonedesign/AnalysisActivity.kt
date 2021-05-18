@@ -17,7 +17,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import java.util.Date.from
+import kotlin.concurrent.schedule
 
 class AnalysisActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -131,7 +133,9 @@ class AnalysisActivity : AppCompatActivity() {
                     dialog.setTitle("알림")
                     dialog.setMessage(result.toString())
                     dialog.show()
-                    onBtnYesClicked()
+                    Timer().schedule(1000) {
+                        onBtnYesClicked()
+                    }
 
                 }
 

@@ -68,19 +68,28 @@ class HomeActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         var retrofit = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:7000")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
+            .baseUrl("http://13.209.10.103/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
 
         var qrService = retrofit.create(QrService::class.java)
 
-        var call: Call<Qr> = qrService.requestQr("result.contents")
+        val call : Call<Qr> = qrService.requestQr("result.contents")
 
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
 
         if (result != null) {
             // result.contents에는 스캔한 결과가 포함된다. 만약 null이라면 사용자가 스캔을 완료하지 않고 QR 리더 액티비티를 종료한 것이다.
             if (result.contents != null) {
+                call.enqueue(object : Callback<Qr>{
+                    override fun onFailure(call : Call<Qr>,t:Throwable){
+                        Log.d("qrTest","error:(${t.message}")
+                    }
+                    override fun onResponse(call: Call<Qr>,response: Response<Qr>){
+                        Log.d("qrTest", "Success: "+"${response.isSuccessful()}")
+
+                    }
+                })
                 Toast.makeText(
                     this,
                     "Scanned: ${result.contents} ${result.formatName}",

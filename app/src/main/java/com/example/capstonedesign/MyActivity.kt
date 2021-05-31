@@ -24,34 +24,34 @@ class MyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my)
 
-//        var retrofit = Retrofit.Builder()
-//            .baseUrl("http://13.209.10.103/")
-//            .addConverterFactory(GsonConverterFactory.create())
-//            .build()
+       var retrofit = Retrofit.Builder()
+           .baseUrl("http://13.209.10.103/")
+           .addConverterFactory(GsonConverterFactory.create())
+           .build()
 
 
-//        var myService = retrofit.create(MyService::class.java)
-//        myService.requestMy().enqueue(object: Callback<My> {
-//            override fun onFailure(call: Call<My>, t: Throwable) {
-//                Log.d("TEST5","onFailure: 통신 실패")
-//                var dialog = AlertDialog.Builder(this@MyActivity)
-//                dialog.setTitle("알림")
-//                dialog.setMessage("My알약을 불러오는데 실패했습니다.")
-//                dialog.show()
-//            }
-//            override fun onResponse(call: Call<My>, response: Response<My>) {
-//                for (item in response.body()?.data!! ){
-//                    val res = item.itemName
-//                    val profileList = arrayListOf(
-//                        Profiles(R.drawable.line, res.toString())
-//                    )
-//                    rv_profile.layoutManager = LinearLayoutManager(this@MyActivity, LinearLayoutManager.VERTICAL, false)
-//                    rv_profile.setHasFixedSize(true)
-//
-//                    rv_profile.adapter = ProfileAdapter(profileList)
-//                }
-//            }
-//        })
+       var myService = retrofit.create(MyService::class.java)
+       myService.requestMy().enqueue(object: Callback<My> {
+           override fun onFailure(call: Call<My>, t: Throwable) {
+               Log.d("TEST5","onFailure: 통신 실패")
+               var dialog = AlertDialog.Builder(this@MyActivity)
+               dialog.setTitle("알림")
+               dialog.setMessage("My알약을 불러오는데 실패했습니다.")
+               dialog.show()
+           }
+           override fun onResponse(call: Call<My>, response: Response<My>) {
+               for (item in response.body()?.data!! ){
+                   val res = item.itemName
+                   val profileList = arrayListOf(
+                       Profiles(R.drawable.line, res.toString())
+                   )
+                   rv_profile.layoutManager = LinearLayoutManager(this@MyActivity, LinearLayoutManager.VERTICAL, false)
+                   rv_profile.setHasFixedSize(true)
+
+                   rv_profile.adapter = ProfileAdapter(profileList)
+               }
+           }
+       })
 
         if (intent.hasExtra("msg")){//?
             textView5.text = intent.getStringExtra("msg")
